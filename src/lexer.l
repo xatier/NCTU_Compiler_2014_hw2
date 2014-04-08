@@ -37,13 +37,8 @@ void printSymTab();
 #define MK_RPAREN     36
 #define MK_LBRACK     37
 #define MK_RBRACK     38
-<<<<<<< HEAD
 #define MK_LBRACE     39
 #define MK_RBRACE     40
-=======
-//#define MK_LBRACE     39
-//#define MK_LBRACE     40
->>>>>>> bfc9fd35aeee7bae9f352a974e6031b330398cab
 #define ERROR         100
 
 %}
@@ -192,13 +187,9 @@ error              .
 {DL_comma}         {}
 {DL_semicol}       {}
 {newline}          linenumber += 1;
-<<<<<<< HEAD
-{error}            ECHO;printf("\n");/*printf("ERR \n");*/     /* return ERROR; */
-=======
 {error}            printf("ERR\n");     /* return ERROR; */
 {float}            printf("float: %s\n", yytext);
 {string}           printf("string: %s\n", yytext);
->>>>>>> bfc9fd35aeee7bae9f352a974e6031b330398cab
 
 
 %%
