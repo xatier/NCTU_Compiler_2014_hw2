@@ -10,6 +10,7 @@ int main()
 	/* 1: this is just a sample */
     int c, d;
 	float f,g;
+    char *str = "This is a string";
 	g = 3.3;
     c = 1;
     d = 3;
@@ -20,6 +21,6 @@ int main()
     func(c,e);
 	write(d);
 	d = 0;  /* 3: this is /* the end ***/
-	
+
     return 0;
 }
