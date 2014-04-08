@@ -37,8 +37,8 @@ void printSymTab();
 #define MK_RPAREN     36
 #define MK_LBRACK     37
 #define MK_RBRACK     38
-#define MK_LBRACE     39
-#define MK_LBRACE     40
+//#define MK_LBRACE     39
+//#define MK_LBRACE     40
 #define ERROR         100
 
 %}
@@ -57,7 +57,7 @@ comment
 */
 
 exp      (e|E)[+-]{digit}
-float    {digit}\.{digit}{exp}?|{digit}{exp}
+float    ({digit}*\.{digit}+|{digit}+\.{digit}*){exp}?|{digit}{exp}
 
 string   \"(\\.|[^"])*\"
 
