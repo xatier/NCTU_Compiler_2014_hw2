@@ -45,8 +45,8 @@ void printSymTab();
 
 letter   [A-Za-z]
 digit    [0-9]
-ID     {letter}({letter}|{digit}|"_")*
-WS     [ \t]+
+ID       {letter}({letter}|{digit}|"_")*
+WS       [ \t]+
 Int_constant {digit}+
 
 /* You need to define the following RE's
@@ -56,11 +56,25 @@ comment
 
 */
 
+exp      (e|E)[+-]{digit}
+float    {digit}\.{digit}{exp}?|{digit}{exp}
+
+/* float constant
+xatier: I think we don't need [:: type]?
+
+page 17 in C-- spec
+
+float -> {digit} . {digit} [exp] [:: type]
+      |  {decdigit} exp [:: type]
+
+exp  -> (e | E) [+|-] {decdigit}
+
+*/
+
+
+
+
 /*
-{HP}{H}+{IS}?               { return I_CONSTANT; }
-{NZ}{D}*{IS}?               { return I_CONSTANT; }
-"0"{O}*{IS}?                { return I_CONSTANT; }
-{CP}?"'"([^'\\\n]|{ES})+"'" { return I_CONSTANT; }
 
 {D}+{E}{FS}?                { return F_CONSTANT; }
 {D}*"."{D}+{E}?{FS}?        { return F_CONSTANT; }
@@ -185,5 +199,6 @@ main(int argc, char **argv)
       yyin = stdin;
    yylex();
    printSymTab();
+   fclose(yyin);
 }
 
