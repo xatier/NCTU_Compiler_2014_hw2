@@ -56,8 +56,8 @@ comment
 
 */
 
-exp      (e|E)[+-]{digit}
-float    ({digit}*\.{digit}+|{digit}+\.{digit}*){exp}?|{digit}{exp}
+exp      (e|E)[+-]?{digit}
+float    ({digit}*\.{digit}+|{digit}+\.{digit}*){exp}?|{digit}+{exp}
 
 string   \"(\\.|[^"])*\"
 
@@ -159,6 +159,8 @@ error              .
 {RWVoid}           {/* return VOID; */ }
 {RWWhile}          {/* return WHILE; */ }
 {Int_constant}     {/* return Int_constant*/ }
+{float}            {/* return float*/ }
+{string}           {/* return string*/ }
 {ID}    {
             ptr = lookup(yytext);
             if (ptr == NULL)
@@ -189,8 +191,8 @@ error              .
 {DL_comma}         {}
 {DL_semicol}       {}
 {newline}          linenumber += 1;
-{error}            printf("ERR\n");     /* return ERROR; */
-{comment}          printf("%s", yytext);
+{error}            ECHO;printf("\n");//printf("ERR\n");     /* return ERROR; */
+{comment}          printf("%s\n", yytext);
 
 
 %%
