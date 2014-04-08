@@ -35,8 +35,10 @@ void printSymTab();
 #define OP_NOT        34
 #define MK_LPAREN     35
 #define MK_RPAREN     36
-#define MK_LBRACE     37
-#define MK_LBRACE     38
+#define MK_LBRACK     37
+#define MK_RBRACK     38
+#define MK_LBRACE     39
+#define MK_LBRACE     40
 #define ERROR         100
 
 %}
@@ -112,6 +114,8 @@ newline            "\n"
 
 DL_lparen          "("
 DL_rparen          ")"
+DL_lbrack          "["
+DL_rbrack          "]"
 DL_lbrace          "{"
 DL_rbrace          "}"
 DL_comma           ","
@@ -159,6 +163,8 @@ error              .
 {OP_not}           {/* return OP_NOT; */}
 {DL_lparen}        {/* return MK_LPAREN; */}
 {DL_rparen}        {/* return MK_RPAREN; */}
+{DL_lbrack}        {/* return MK_LBRACK; */}
+{DL_rbrack}        {/* return MK_RBRACK; */}
 {DL_lbrace}        {/* return MK_LBRACE; */}
 {DL_rbrace}        {/* return MK_RBRACE; */}
 {DL_comma}         {}
