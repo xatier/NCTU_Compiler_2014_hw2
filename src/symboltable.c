@@ -107,7 +107,8 @@ void printSymTab (void) {
     // sort before printing
     qsort(hash_table_p, entry_count, sizeof(struct symtab), cmpEntry);
 
-    printf("----- Symbol Table ---------\n");
+    //printf("----- Symbol Table ---------\n");
+    puts("\nFrequency of identifiers:");
     for (i = 0; i < entry_count; i++) {
         printSym(&hash_table_p[i]);
     }
