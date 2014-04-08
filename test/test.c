@@ -11,7 +11,16 @@ int main()
     int c, d;
 	float f,g;
     char *str = "This is a string";
-	g = 3.3;
+    "Thsi is not.asdf;lk1234p098asdf;klj" asdfijt"
+
+	g =
+    3.1415
+    3e-5 1e+2
+    23.3e-4
+    2.71828e0;
+    .1234
+    .
+    123.
     c = 1;
     d = 3;
 	/* 2: this is a 3-line
