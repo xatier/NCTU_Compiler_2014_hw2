@@ -8,12 +8,35 @@ symtab *ptr;
 void insertID();
 void printSymTab();
 /* You need to define for all tokens in C--, here are some examples */
-#define INT           10
-#define FLOAT         11
-#define OP_ASSIGN     12
-#define OP_OR         13
-#define MK_LPAREN     14
-#define MK_RPAREN     15
+#define RETURN        10
+#define TYPEDEF       11
+#define IF            12
+#define ELSE          13
+#define INT           14
+#define FLOAT         15
+#define FOR           16
+#define STRUCT        17
+#define UNION         18
+#define VOID          19
+#define WHILE         20
+#define OP_PLUS       21
+#define OP_MINUS      22
+#define OP_MUL        23
+#define OP_DIV        24
+#define OP_LESS       25
+#define OP_GREATER    26
+#define OP_GEQUAL     27
+#define OP_LEQUAL     28
+#define OP_NOTEQ      29
+#define OP_EQUAL      30
+#define OP_ASSIGN     31
+#define OP_OR         32
+#define OP_AND        33
+#define OP_NOT        34
+#define MK_LPAREN     35
+#define MK_RPAREN     36
+#define MK_LBRACE     37
+#define MK_LBRACE     38
 #define ERROR         100
 
 %}
@@ -45,8 +68,17 @@ comment
 {HP}{H}+"."{P}{FS}?         { return F_CONSTANT; }
 */
 
-RWInt   "int"
-RWFloat "float"
+RWReturn    "return"
+RWTypedef   "typedef"
+RWIf        "if"
+RWElse      "else"
+RWInt       "int"
+RWFloat     "float"
+RWFor       "for"
+RWStruct    "struct"
+RWUnion     "union"
+RWVoid      "void"
+RWWhile     "while"
 
 /*
 xatier: I think this might a referenct to C-style comments?
@@ -56,8 +88,22 @@ xatier: A lex style to ANSI-C grammar
 http://www.quut.com/c/ANSI-C-grammar-l.html
 */
 
+OP_plus            "+"
+OP_minus           "-"
+OP_mul             "*"
+OP_div             "/"
+
+OP_less            "<"
+OP_greater         ">"
+OP_gequal          ">="
+OP_lequal          "<="
+OP_noteq           "!="
+OP_equal           "=="
+
 OP_assign          "="
 OP_or              "||"
+OP_and             "&&"
+OP_not             "!"
 
 /* Other operators appear here */
 
@@ -79,8 +125,17 @@ error              .
 %%
 
 {WS}               {}
+{RWReturn}         {/* return RETURN; */ }
+{RWTypedef}        {/* return TYPEDEF; */ }
+{RWIf}             {/* return IF; */ }
+{RWElse}           {/* return ELSE; */ }
 {RWInt}            {/* return INT; */ }
 {RWFloat}          {/* return FLOAT; */}
+{RWFor}            {/* return FOR; */ }
+{RWStruct}         {/* return STRUCT; */ }
+{RWUnion}          {/* return UNION; */ }
+{RWVoid}           {/* return VOID; */ }
+{RWWhile}          {/* return WHILE; */ }
 {ID}    {
             ptr = lookup(yytext);
             if (ptr == NULL)
@@ -88,9 +143,20 @@ error              .
             else
                  ptr->counter++;
         }
-
+{OP_plus}          /* return OP_PLUS; */
+{OP_minus}         /* return OP_MINUS; */
+{OP_mul}           /* return OP_MUL; */
+{OP_div}           /* return OP_DIV; */
+{OP_less}          /* return OP_LESS; */
+{OP_greater}       /* return OP_GREATER; */
+{OP_gequal}        /* return OP_GEQUAL; */
+{OP_lequal}        /* return OP_LEQUAL; */
+{OP_noteq}         /* return OP_NOTEQ; */
+{OP_equal}         /* return OP_EQUAL; */
 {OP_assign}        /* return OP_ASSIGN; */
 {OP_or}            /* return OP_OR; */
+{OP_and}           /* return OP_AND; */
+{OP_not}           /* return OP_NOT; */
 {DL_lparen}        /* return MK_LPAREN; */
 {DL_rparen}        /* return MK_RPAREN; */
 {DL_lbrace}        /* return MK_LBRACE; */
