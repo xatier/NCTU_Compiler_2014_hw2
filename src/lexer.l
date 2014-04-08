@@ -143,24 +143,24 @@ error              .
             else
                  ptr->counter++;
         }
-{OP_plus}          /* return OP_PLUS; */
-{OP_minus}         /* return OP_MINUS; */
-{OP_mul}           /* return OP_MUL; */
-{OP_div}           /* return OP_DIV; */
-{OP_less}          /* return OP_LESS; */
-{OP_greater}       /* return OP_GREATER; */
-{OP_gequal}        /* return OP_GEQUAL; */
-{OP_lequal}        /* return OP_LEQUAL; */
-{OP_noteq}         /* return OP_NOTEQ; */
-{OP_equal}         /* return OP_EQUAL; */
-{OP_assign}        /* return OP_ASSIGN; */
-{OP_or}            /* return OP_OR; */
-{OP_and}           /* return OP_AND; */
-{OP_not}           /* return OP_NOT; */
-{DL_lparen}        /* return MK_LPAREN; */
-{DL_rparen}        /* return MK_RPAREN; */
-{DL_lbrace}        /* return MK_LBRACE; */
-{DL_rbrace}        /* return MK_RBRACE; */
+{OP_plus}          {/* return OP_PLUS; */}
+{OP_minus}         {/* return OP_MINUS; */}
+{OP_mul}           {/* return OP_MUL; */}
+{OP_div}           {/* return OP_DIV; */}
+{OP_less}          {/* return OP_LESS; */}
+{OP_greater}       {/* return OP_GREATER; */}
+{OP_gequal}        {/* return OP_GEQUAL; */}
+{OP_lequal}        {/* return OP_LEQUAL; */}
+{OP_noteq}         {/* return OP_NOTEQ; */}
+{OP_equal}         {/* return OP_EQUAL; */}
+{OP_assign}        {/* return OP_ASSIGN; */}
+{OP_or}            {/* return OP_OR; */}
+{OP_and}           {/* return OP_AND; */}
+{OP_not}           {/* return OP_NOT; */}
+{DL_lparen}        {/* return MK_LPAREN; */}
+{DL_rparen}        {/* return MK_RPAREN; */}
+{DL_lbrace}        {/* return MK_LBRACE; */}
+{DL_rbrace}        {/* return MK_RBRACE; */}
 {DL_comma}         {}
 {DL_semicol}       {}
 {newline}          linenumber += 1;
