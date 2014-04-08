@@ -38,7 +38,7 @@ void printSymTab();
 #define MK_LBRACK     37
 #define MK_RBRACK     38
 #define MK_LBRACE     39
-#define MK_LBRACE     40
+#define MK_RBRACE     40
 #define ERROR         100
 
 %}
@@ -140,6 +140,7 @@ error              .
 {RWUnion}          {/* return UNION; */ }
 {RWVoid}           {/* return VOID; */ }
 {RWWhile}          {/* return WHILE; */ }
+{Int_constant}     {/* return Int_constant*/ }
 {ID}    {
             ptr = lookup(yytext);
             if (ptr == NULL)
@@ -170,7 +171,7 @@ error              .
 {DL_comma}         {}
 {DL_semicol}       {}
 {newline}          linenumber += 1;
-{error}            printf("ERR \n");     /* return ERROR; */
+{error}            ECHO;printf("\n");/*printf("ERR \n");*/     /* return ERROR; */
 
 
 %%
