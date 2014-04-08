@@ -59,6 +59,8 @@ comment
 exp      (e|E)[+-]{digit}
 float    {digit}\.{digit}{exp}?|{digit}{exp}
 
+string   \"(\\.|[^"])*\"
+
 /* float constant
 xatier: I think we don't need [:: type]?
 
@@ -184,7 +186,9 @@ error              .
 {DL_comma}         {}
 {DL_semicol}       {}
 {newline}          linenumber += 1;
-{error}            printf("ERR \n");     /* return ERROR; */
+{error}            printf("ERR\n");     /* return ERROR; */
+{float}            printf("float: %s\n", yytext);
+{string}           printf("string: %s\n", yytext);
 
 
 %%
