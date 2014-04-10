@@ -77,17 +77,6 @@ exp  -> (e | E) [+|-] {decdigit}
 
 
 
-
-/*
-
-{D}+{E}{FS}?                { return F_CONSTANT; }
-{D}*"."{D}+{E}?{FS}?        { return F_CONSTANT; }
-{D}+"."{E}?{FS}?            { return F_CONSTANT; }
-{HP}{H}+{P}{FS}?            { return F_CONSTANT; }
-{HP}{H}*"."{H}+{P}{FS}?     { return F_CONSTANT; }
-{HP}{H}+"."{P}{FS}?         { return F_CONSTANT; }
-*/
-
 RWReturn    "return"
 RWTypedef   "typedef"
 RWIf        "if"
